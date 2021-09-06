@@ -36,6 +36,8 @@ jobs:
         uses: nanasess/setup-chromedriver@v1.0.1
       - name: Run tests
         run: mvn clean compile test
+        env:
+             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "Import results to Xray (server/DC)"
         uses: mikepenz/xray-action@v2.0.0
         with:
