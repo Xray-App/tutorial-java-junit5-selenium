@@ -11,6 +11,8 @@ Code that supports the tutorial [Testing web applications using JUnit](???) show
 ## Prerequisites
 
 In order to run this tutorial, you need to have JDK 8 and Maven.
+You also need to configure the GitHub packages maven repo, which requires authentication using GH username+token.
+There's a [settings.yml.sample](settings.xml.sample) where you need to set those credentials. Rename it to settings.xml and copy it to the `~/.m2` folder.
 
 ## Running
 
