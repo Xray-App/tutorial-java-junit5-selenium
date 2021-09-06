@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xpandit.xray.tutorials</groupId>
+    <artifactId>java-junit5-selenium</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        
+        <!--Xray Properties -->
+        <!--
+        <xray.jiraURL>https://jiraserver_base_url</xray.jiraURL>
+        <xray.resultsFormat>JUNIT</xray.resultsFormat>
+        <xray.username>someuser</xray.username>
+        <xray.password>somepass</xray.password>
+        <xray.projectKey>XT</xray.projectKey>
+        <xray.testExecKey></xray.testExecKey>
+        <xray.testPlanKey></xray.testPlanKey>
+        <xray.testEnvironments></xray.testEnvironments>
+        <xray.revision></xray.revision>
+        <xray.surefire.location>${basedir}/results</xray.surefire.location>
+        -->
+        <!--End Xray Properties -->
+ 
+        <junit-jupiter.version>5.7.1</junit-jupiter.version>
+        <junit-platform.version>1.7.1</junit-platform.version>    
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <debug>true</debug>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgs>
+                        <!-- this flag is required in order to obtain the name of parameters in test methods -->
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <disableXmlReport>true</disableXmlReport>
+                    <useFile>false</useFile>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-api</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-reporting</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xpandit.xray</groupId>
+            <artifactId>xray-junit-extensions</artifactId>
+            <version>0.3.0</version>
+            <scope>test</scope>
+          </dependency>
+
+
+        <!-- 
+        <dependency>
+            <groupId>com.xpandit.xray</groupId>
+            <artifactId>xray-maven-plugin</artifactId>
+            <version>1.1.0</version>
+            <scope>test</scope>
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+            <scope>test</scope>
+        </dependency>
+        
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+	    <url>https://maven.pkg.github.com/Xray-App/*</url>	
+            <snapshots>
+              <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+<!--
+        <pluginRepository>
+            <id>xpand-plugins</id>
+            <name>xpand-plugins</name>
+            <url>http://maven.xpand-it.com/artifactory/releases</url>
+	</pluginRepository>
+-->
+    </pluginRepositories>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+
+        <!--
+            <plugin>
+                <groupId>com.xpandit.xray</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>1.1.0</version>
+            </plugin>
+        -->
+        </plugins>
+    </reporting>
+ 
+
+</project>
