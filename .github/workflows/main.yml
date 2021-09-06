@@ -45,8 +45,8 @@ jobs:
            password: ${{ secrets.JIRASERVER_PASSWORD }}
            xrayCloud: "false"
            xrayBaseUrl: ${{ secrets.JIRASERVER_BASE_URL }}
-           testFormat: "nunit"
-           testPaths: "**/TestResults/*.xml"
+           testFormat: "junit"
+           testPaths: "**/reports/*.xml"
            testPlanKey: "${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}"
            projectKey: "${{ secrets.JIRASERVER_PROJECT_KEY }}"
       - name: "Import results to Xray (cloud)"
@@ -55,7 +55,7 @@ jobs:
            username: "${{ secrets.XRAYCLOUD_CLIENT_ID }}"
            password: "${{ secrets.XRAYCLOUD_CLIENT_SECRET }}"
            xrayCloud: "true"
-           testFormat: "nunit"
-           testPaths: "**/TestResults/*.xml"
+           testFormat: "junit"
+           testPaths: "**/reports/*.xml"
            testPlanKey: "${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
            projectKey: "${{ secrets.JIRACLOUD_PROJECT_KEY }}"
