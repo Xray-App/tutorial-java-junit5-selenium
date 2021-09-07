@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.xpandit.xray.junit.customjunitxml.XrayTestReporterParameterResolver;
 import com.xpandit.xray.junit.customjunitxml.annotations.Requirement;
+import com.xpandit.xray.junit.customjunitxml.annotations.XrayTest;
 
 @ExtendWith(XrayTestReporterParameterResolver.class)
 public class LoginTests {
@@ -32,9 +33,10 @@ public class LoginTests {
     public void tearDown() throws Exception {
         driver.quit();
     }
-
-	@Test
-    @Requirement("XT-1")
+    
+    @Test
+    @XrayTest(key = "XT-12")
+    @Requirement("XT-10")
     public void validLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
@@ -44,6 +46,7 @@ public class LoginTests {
     }
 
     @Test
+    @XrayTest(summary = "invalid login test", description = "login attempt with invalid credentials")
     public void invalidLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
