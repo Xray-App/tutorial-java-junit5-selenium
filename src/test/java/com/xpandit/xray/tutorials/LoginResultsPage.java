@@ -15,7 +15,6 @@ public class LoginResultsPage {
 
     public String getTitle()
     {
-
         return driver.getTitle();
     }
     

@@ -6,7 +6,7 @@
 
 ## Overview
 
-Code that supports the tutorial [Testing web applications using JUnit](???) showcasing the integration between [Xray Test Management](https://www.getxray.app/) on Jira and JUnit 5, using a custom report.
+Code that supports the tutorial [Testing web applications using Selenium and JUnit5 in Java](https://docs.getxray.app/display/XRAY/Testing+web+applications+using+Selenium+and+Junit5+in+Java) showcasing the integration between [Xray Test Management](https://www.getxray.app/) on Jira and JUnit 5, using a custom report.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ docker run --rm -v $(pwd)/reports:/source/reports -t tutorial_java_junit5_seleni
 ## Submitting results to Jira
 
 Results can be submitted to Jira so that they can be shared with the team and their impacts be easily analysed.
-This can be achieved using [Xray Test Management](https://www.getxray.app/) as shown in further detail in this [tutorial](???).
+This can be achieved using [Xray Test Management](https://www.getxray.app/) as shown in further detail in this [tutorial](https://docs.getxray.app/display/XRAY/Testing+web+applications+using+Selenium+and+Junit5+in+Java).
 
 ## Contact
 

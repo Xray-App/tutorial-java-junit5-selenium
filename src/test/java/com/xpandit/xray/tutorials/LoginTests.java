@@ -25,6 +25,7 @@ import com.xpandit.xray.junit.customjunitxml.annotations.XrayTest;
 @ExtendWith(XrayTestReporterParameterResolver.class)
 public class LoginTests {
     WebDriver driver;
+    RepositoryParser repo;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -32,27 +33,31 @@ public class LoginTests {
         options.addArguments("--no-sandbox"); // Bypass OS security model, to run in Docker
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        repo = new RepositoryParser("./src/configs/object.properties");
     }
 
     @AfterEach
     public void tearDown() throws Exception {
         driver.quit();
+        driver = null;
+        repo = null;
     }
     
     @Test
-    @XrayTest(key = "XT-12")
+    @XrayTest(key = "XT-307")
     @Requirement("XT-10")
-    public void validLogin()
+    public void successLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
+        assertTrue(loginPage.isVisible());
         LoginResultsPage loginResultsPage = loginPage.login("demo", "mode");
-        assertEquals(loginResultsPage.getTitle(), "Welcome Page");
-        assertTrue(loginResultsPage.contains("Login succeeded"));
+        assertEquals(loginResultsPage.getTitle(), repo.getBy("expected.login.title"));
+        assertTrue(loginResultsPage.contains(repo.getBy("expected.login.success")));
     }
 
     @Test
     @XrayTest(summary = "invalid login test", description = "login attempt with invalid credentials")
-    public void invalidLogin(XrayTestReporter xrayReporter)
+    public void nosuccessLogin(XrayTestReporter xrayReporter)
     {
         LoginPage loginPage = new LoginPage(driver).open();
         assertTrue(loginPage.isVisible());
@@ -61,8 +66,8 @@ public class LoginTests {
         File screenshot = screenshotTaker.getScreenshotAs(OutputType.FILE);
         xrayReporter.addTestRunEvidence(screenshot.getAbsolutePath());
         xrayReporter.addComment("auth should have failed");
-        assertEquals(loginResultsPage.getTitle(), "Error Page");
-        assertTrue(loginResultsPage.contains("Login failed"));
+        assertEquals(loginResultsPage.getTitle(), repo.getBy("expected.error.title"));
+        assertTrue(loginResultsPage.contains(repo.getBy("expected.login.failed")));
     }
 
 }
