@@ -1,4 +1,4 @@
-package com.xpandit.xray.tutorials;
+package com.idera.xray.tutorials;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

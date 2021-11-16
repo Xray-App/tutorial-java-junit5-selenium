@@ -1,4 +1,4 @@
-package com.xpandit.xray.tutorials;
+package com.idera.xray.tutorials;
 
 import java.io.FileInputStream;
 import java.io.IOException;

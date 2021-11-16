@@ -7,3 +7,4 @@ target/
 **/*.class
 reports/*
 settings.xml
+.DS_Store

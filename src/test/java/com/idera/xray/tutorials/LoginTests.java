@@ -1,4 +1,4 @@
-package com.xpandit.xray.tutorials;
+package com.idera.xray.tutorials;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 
-import com.xpandit.xray.junit.customjunitxml.XrayTestReporter;
-import com.xpandit.xray.junit.customjunitxml.XrayTestReporterParameterResolver;
-import com.xpandit.xray.junit.customjunitxml.annotations.Requirement;
-import com.xpandit.xray.junit.customjunitxml.annotations.XrayTest;
+import com.idera.xray.junit.customjunitxml.XrayTestReporter;
+import com.idera.xray.junit.customjunitxml.XrayTestReporterParameterResolver;
+import com.idera.xray.junit.customjunitxml.annotations.Requirement;
+import com.idera.xray.junit.customjunitxml.annotations.XrayTest;
 
 @ExtendWith(XrayTestReporterParameterResolver.class)
 public class LoginTests {
