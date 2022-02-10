@@ -1,3 +1,4 @@
+.vscode/
 import-results-cloud.sh
 cloud_auth.json
 .classpath

@@ -8,23 +8,7 @@
     <artifactId>java-junit5-selenium</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        
-        <!--Xray Properties -->
-        <!--
-        <xray.jiraURL>https://jiraserver_base_url</xray.jiraURL>
-        <xray.resultsFormat>JUNIT</xray.resultsFormat>
-        <xray.username>someuser</xray.username>
-        <xray.password>somepass</xray.password>
-        <xray.projectKey>XT</xray.projectKey>
-        <xray.testExecKey></xray.testExecKey>
-        <xray.testPlanKey></xray.testPlanKey>
-        <xray.testEnvironments></xray.testEnvironments>
-        <xray.revision></xray.revision>
-        <xray.surefire.location>${basedir}/results</xray.surefire.location>
-        -->
-        <!--End Xray Properties -->
- 
+    <properties> 
         <junit-jupiter.version>5.7.1</junit-jupiter.version>
         <junit-platform.version>1.7.1</junit-platform.version>    
     </properties>
@@ -54,6 +38,19 @@
                     <useFile>false</useFile>
                 </configuration>
             </plugin>
+
+
+            <plugin>
+                <groupId>com.xblend</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <configuration>
+                    <projectKey>XT</projectKey>
+                    <reportFormat>junit</reportFormat>
+                    <reportFile>reports/TEST-junit-jupiter.xml</reportFile>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -101,22 +98,19 @@
             <artifactId>xray-junit-extensions</artifactId>
             <version>0.4.0</version>
             <scope>test</scope>
-          </dependency>
+        </dependency>
 
-
-        <!-- 
         <dependency>
-            <groupId>com.xpandit.xray</groupId>
+            <groupId>com.xblend</groupId>
             <artifactId>xray-maven-plugin</artifactId>
-            <version>1.1.0</version>
+            <version>0.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
-        -->
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.1.2</version>
             <scope>test</scope>
         </dependency>
         
@@ -125,7 +119,7 @@
     <repositories>
         <repository>
             <id>github</id>
-	    <url>https://maven.pkg.github.com/Xray-App/*</url>	
+            <url>https://maven.pkg.github.com/Xray-App/*</url>
             <snapshots>
               <enabled>true</enabled>
             </snapshots>
@@ -133,13 +127,6 @@
     </repositories>
 
     <pluginRepositories>
-<!--
-        <pluginRepository>
-            <id>xpand-plugins</id>
-            <name>xpand-plugins</name>
-            <url>http://maven.xpand-it.com/artifactory/releases</url>
-	</pluginRepository>
--->
     </pluginRepositories>
 
     <reporting>
@@ -147,14 +134,6 @@
             <plugin>
                 <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
-
-        <!--
-            <plugin>
-                <groupId>com.xpandit.xray</groupId>
-                <artifactId>xray-maven-plugin</artifactId>
-                <version>1.1.0</version>
-            </plugin>
-        -->
         </plugins>
     </reporting>
  
