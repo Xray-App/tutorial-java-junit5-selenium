@@ -55,6 +55,8 @@ jobs:
            testPaths: "**/reports/*.xml"
            testPlanKey: "${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}"
            projectKey: "${{ secrets.JIRASERVER_PROJECT_KEY }}"
+      - name: "Import results to Xray (cloud) using maven plugin"
+        run: mvn com.xblend:xray-maven-plugin:import-results -Dxray.cloud=true -Dxray.clientId=${{ secrets.XRAYCLOUD_CLIENT_ID }} -Dxray.clientSecret=${{ secrets.XRAYCLOUD_CLIENT_SECRET }} -Dxray.projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}
       - name: "Import results to Xray (cloud) using a GH action"
         if: ${{ false }}
         uses: mikepenz/xray-action@v2.3.0
