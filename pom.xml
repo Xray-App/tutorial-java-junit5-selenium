@@ -122,6 +122,7 @@
             <url>https://maven.pkg.github.com/Xray-App/*</url>
             <snapshots>
               <enabled>true</enabled>
+              <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
     </repositories>
