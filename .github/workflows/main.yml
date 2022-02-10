@@ -43,6 +43,8 @@ jobs:
         run: cat reports/TEST-junit-jupiter.xml
       - name: "Import results to Xray (server/DC) using maven plugin"
         run: mvn com.xblend:xray-maven-plugin:import-results -Dxray.cloud=false -Dxray.jiraBaseUrl=${{ secrets.JIRASERVER_BASE_URL }} -Dxray.jiraUsername=${{ secrets.JIRASERVER_USERNAME }} -Dxray.jiraPassword=${{ secrets.JIRASERVER_PASSWORD }} -Dxray.projectKey=${{ secrets.JIRASERVER_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}
+        env:
+             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "Import results to Xray (server/DC) using a GH action"
         if: ${{ false }}
         uses: mikepenz/xray-action@v2.3.0
