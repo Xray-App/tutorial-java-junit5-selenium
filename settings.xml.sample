@@ -4,12 +4,12 @@
                       http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
   <activeProfiles>
-    <activeProfile>github</activeProfile>
+    <activeProfile>central_and_github</activeProfile>
   </activeProfiles>
 
   <profiles>
     <profile>
-      <id>github</id>
+      <id>central_and_github</id>
       <repositories>
         <repository>
           <id>central</id>
@@ -20,9 +20,20 @@
           <url>https://maven.pkg.github.com/Xray-App/*</url>
           <snapshots>
             <enabled>true</enabled>
+	    <updatePolicy>always</updatePolicy>
           </snapshots>
         </repository>
       </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/Xray-App/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+	    <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
   </profiles>
 

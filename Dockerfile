@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/openjdk
 # https://hub.docker.com/_/maven
-FROM maven:3.6-openjdk-8 AS build
+FROM maven:3.8-openjdk-8 AS build
 
 RUN apt-get update && \
     apt-get install -y gnupg wget curl unzip --no-install-recommends && \

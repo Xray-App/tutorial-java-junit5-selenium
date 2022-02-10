@@ -104,7 +104,6 @@
             <groupId>com.xblend</groupId>
             <artifactId>xray-maven-plugin</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -128,6 +127,14 @@
     </repositories>
 
     <pluginRepositories>
+        <pluginRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Xray-App/*</url>
+            <snapshots>
+              <enabled>true</enabled>
+              <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
     </pluginRepositories>
 
     <reporting>
