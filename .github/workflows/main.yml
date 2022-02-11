@@ -38,16 +38,16 @@ jobs:
         run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml clean compile test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: debug JUnit XML report
         if: ${{ false }}
         run: cat reports/TEST-junit-jupiter.xml
       - name: "Import results to Xray (server/DC) using maven plugin"
         run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml com.xblend:xray-maven-plugin:import-results -Dxray.cloud=false -Dxray.jiraBaseUrl=${{ secrets.JIRASERVER_BASE_URL }} -Dxray.jiraUsername=${{ secrets.JIRASERVER_USERNAME }} -Dxray.jiraPassword=${{ secrets.JIRASERVER_PASSWORD }} -Dxray.projectKey=${{ secrets.JIRASERVER_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}
         env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: "Import results to Xray (server/DC) using a GH action"
         if: ${{ false }}
         uses: mikepenz/xray-action@v2.3.0
@@ -63,8 +63,8 @@ jobs:
       - name: "Import results to Xray (cloud) using maven plugin"
         run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml com.xblend:xray-maven-plugin:import-results -Dxray.cloud=true -Dxray.clientId=${{ secrets.XRAYCLOUD_CLIENT_ID }} -Dxray.clientSecret=${{ secrets.XRAYCLOUD_CLIENT_SECRET }} -Dxray.projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}
         env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: "Import results to Xray (cloud) using a GH action"
         if: ${{ false }}
         uses: mikepenz/xray-action@v2.3.0
