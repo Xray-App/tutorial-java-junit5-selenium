@@ -61,6 +61,7 @@ jobs:
            testPlanKey: "${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}"
            projectKey: "${{ secrets.JIRASERVER_PROJECT_KEY }}"
       - name: "Import results to Xray (cloud) using maven plugin"
+        if: ${{ false }}
         run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml com.xblend:xray-maven-plugin:import-results -Dxray.cloud=true -Dxray.clientId=${{ secrets.XRAYCLOUD_CLIENT_ID }} -Dxray.clientSecret=${{ secrets.XRAYCLOUD_CLIENT_SECRET }} -Dxray.projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}
         env:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
