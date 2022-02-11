@@ -31,8 +31,8 @@
     <servers>
         <server>
             <id>github</id>
-            <username>${env.GH_USERNAME}</username>
-           <password>${env.GH_ACCESS_TOKEN}</password>
+            <username>${env.GITHUB_USERNAME}</username>
+           <password>${env.GITHUB_ACCESS_TOKEN}</password>
         </server>
     </servers>
 
