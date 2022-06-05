@@ -1,3 +1,5 @@
+build/
+.gradle/
 .vscode/
 import-results-cloud.sh
 cloud_auth.json
