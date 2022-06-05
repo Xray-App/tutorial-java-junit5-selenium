@@ -43,7 +43,7 @@ jobs:
         if: ${{ false }}
         run: cat reports/TEST-junit-jupiter.xml
       - name: "Import results to Xray (server/DC) using maven plugin"
-        run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml com.xblend:xray-maven-plugin:import-results -Dxray.cloud=false -Dxray.jiraBaseUrl=${{ secrets.JIRASERVER_BASE_URL }} -Dxray.jiraUsername=${{ secrets.JIRASERVER_USERNAME }} -Dxray.jiraPassword=${{ secrets.JIRASERVER_PASSWORD }} -Dxray.projectKey=${{ secrets.JIRASERVER_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}
+        run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml app.getxray:xray-maven-plugin:import-results -Dxray.cloud=false -Dxray.jiraBaseUrl=${{ secrets.JIRASERVER_BASE_URL }} -Dxray.jiraUsername=${{ secrets.JIRASERVER_USERNAME }} -Dxray.jiraPassword=${{ secrets.JIRASERVER_PASSWORD }} -Dxray.projectKey=${{ secrets.JIRASERVER_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYSERVER_TEST_PLAN_KEY }}
         env:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
           GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
@@ -61,7 +61,7 @@ jobs:
            projectKey: "${{ secrets.JIRASERVER_PROJECT_KEY }}"
       - name: "Import results to Xray (cloud) using maven plugin"
         if: ${{ false }}
-        run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml com.xblend:xray-maven-plugin:import-results -Dxray.cloud=true -Dxray.clientId=${{ secrets.XRAYCLOUD_CLIENT_ID }} -Dxray.clientSecret=${{ secrets.XRAYCLOUD_CLIENT_SECRET }} -Dxray.projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}
+        run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml app.getxray:xray-maven-plugin:import-results -Dxray.cloud=true -Dxray.clientId=${{ secrets.XRAYCLOUD_CLIENT_ID }} -Dxray.clientSecret=${{ secrets.XRAYCLOUD_CLIENT_SECRET }} -Dxray.projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }} -Dxray.testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}
         env:
           GH_USERNAME: ${{ secrets.GH_USERNAME }}
           GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
