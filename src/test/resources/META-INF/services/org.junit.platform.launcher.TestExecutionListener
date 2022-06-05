@@ -1,1 +1,1 @@
-com.idera.xray.junit.customjunitxml.EnhancedLegacyXmlReportGeneratingListener
+app.getxray.xray.junit.customjunitxml.EnhancedLegacyXmlReportGeneratingListener
