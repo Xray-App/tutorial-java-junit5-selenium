@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 
-import com.idera.xray.junit.customjunitxml.XrayTestReporter;
-import com.idera.xray.junit.customjunitxml.XrayTestReporterParameterResolver;
-import com.idera.xray.junit.customjunitxml.annotations.Requirement;
-import com.idera.xray.junit.customjunitxml.annotations.XrayTest;
+import app.getxray.xray.junit.customjunitxml.XrayTestReporter;
+import app.getxray.xray.junit.customjunitxml.XrayTestReporterParameterResolver;
+import app.getxray.xray.junit.customjunitxml.annotations.Requirement;
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 
 @ExtendWith(XrayTestReporterParameterResolver.class)
 public class LoginTests {

@@ -41,9 +41,9 @@
 
 
             <plugin>
-                <groupId>com.xblend</groupId>
+                <groupId>app.getxray</groupId>
                 <artifactId>xray-maven-plugin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>0.5.0</version>
                 <configuration>
                     <projectKey>XT</projectKey>
                     <reportFormat>junit</reportFormat>
@@ -94,16 +94,16 @@
         </dependency>
 
         <dependency>
-            <groupId>com.idera.xray</groupId>
+            <groupId>app.getxray</groupId>
             <artifactId>xray-junit-extensions</artifactId>
-            <version>0.4.0</version>
+            <version>0.6.0</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.xblend</groupId>
+            <groupId>app.getxray</groupId>
             <artifactId>xray-maven-plugin</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.5.0</version>
         </dependency>
 
         <dependency>
@@ -114,7 +114,7 @@
         </dependency>
         
     </dependencies>
-
+    <!--
     <repositories>
         <repository>
             <id>github</id>
@@ -136,6 +136,7 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    -->
 
     <reporting>
         <plugins>
