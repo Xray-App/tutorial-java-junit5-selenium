@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties> 
-        <junit-jupiter.version>5.7.1</junit-jupiter.version>
-        <junit-platform.version>1.7.1</junit-platform.version>    
+        <junit-jupiter.version>5.9.1</junit-jupiter.version>
+        <junit-platform.version>1.9.1</junit-platform.version>    
     </properties>
 
     <build>
@@ -35,7 +35,14 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <disableXmlReport>true</disableXmlReport>
-                    <useFile>false</useFile>
+		    <useFile>false</useFile>
+		    <!-- the following section was added to enable the Open Testing Report output -->
+		    <properties>
+                        <configurationParameters>
+                            junit.platform.reporting.open.xml.enabled = true
+                            junit.platform.reporting.output.dir = target/surefire-reports
+                        </configurationParameters>
+                    </properties>
                 </configuration>
             </plugin>
 
@@ -43,11 +50,11 @@
             <plugin>
                 <groupId>app.getxray</groupId>
                 <artifactId>xray-maven-plugin</artifactId>
-                <version>0.5.0</version>
+                <version>0.7.0-SNAPSHOT</version>
                 <configuration>
-                    <projectKey>XT</projectKey>
+			<!-- <projectKey>XT</projectKey> -->
                     <reportFormat>junit</reportFormat>
-                    <reportFile>reports/TEST-junit-jupiter.xml</reportFile>
+                    <!-- reportFile>reports/TEST-junit-jupiter.xml</reportFile -->
                 </configuration>
             </plugin>
 
@@ -92,6 +99,13 @@
             <artifactId>junit-platform-runner</artifactId>
             <version>${junit-platform.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-reporting</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>app.getxray</groupId>
