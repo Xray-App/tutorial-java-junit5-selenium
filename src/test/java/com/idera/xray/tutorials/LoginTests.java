@@ -32,6 +32,7 @@ public class LoginTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); // Bypass OS security model, to run in Docker
         options.addArguments("--headless");
+	options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         repo = new RepositoryParser("./src/configs/object.properties");
     }

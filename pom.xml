@@ -43,8 +43,9 @@
             <plugin>
                 <groupId>app.getxray</groupId>
                 <artifactId>xray-maven-plugin</artifactId>
-                <version>0.5.0</version>
+                <version>0.7.2</version>
                 <configuration>
+		    <cloud>false</cloud>
                     <projectKey>XT</projectKey>
                     <reportFormat>junit</reportFormat>
                     <reportFile>reports/TEST-junit-jupiter.xml</reportFile>
@@ -103,7 +104,7 @@
         <dependency>
             <groupId>app.getxray</groupId>
             <artifactId>xray-maven-plugin</artifactId>
-            <version>0.5.0</version>
+            <version>0.7.2</version>
         </dependency>
 
         <dependency>
