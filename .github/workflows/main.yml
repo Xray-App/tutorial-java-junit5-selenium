@@ -30,9 +30,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v0.0.0
+        uses: browser-actions/setup-chrome@v1
       - name: setup-chromedriver
-        uses: nanasess/setup-chromedriver@v1.0.1
+        uses: nanasess/setup-chromedriver@v2
       - name: Run tests
         run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml clean compile test
         env:
