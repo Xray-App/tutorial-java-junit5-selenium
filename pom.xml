@@ -27,7 +27,6 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -97,7 +96,7 @@
         <dependency>
             <groupId>app.getxray</groupId>
             <artifactId>xray-junit-extensions</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -113,7 +112,6 @@
             <version>4.1.2</version>
             <scope>test</scope>
         </dependency>
-        
     </dependencies>
     <!--
     <repositories>
