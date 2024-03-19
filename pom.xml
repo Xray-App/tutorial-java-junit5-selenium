@@ -9,101 +9,40 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties> 
-        <junit-jupiter.version>5.7.1</junit-jupiter.version>
-        <junit-platform.version>1.7.1</junit-platform.version>    
+        <junit-jupiter.version>5.10.2</junit-jupiter.version>
+        <junit-platform.version>1.10.2</junit-platform.version>    
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <debug>true</debug>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <compilerArgs>
-                        <!-- this flag is required in order to obtain the name of parameters in test methods -->
-                        <arg>-parameters</arg>
-                    </compilerArgs>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-                <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <disableXmlReport>true</disableXmlReport>
-                    <useFile>false</useFile>
-                </configuration>
-            </plugin>
-
-
-            <plugin>
-                <groupId>app.getxray</groupId>
-                <artifactId>xray-maven-plugin</artifactId>
-                <version>0.7.2</version>
-                <configuration>
-		    <cloud>false</cloud>
-                    <projectKey>XT</projectKey>
-                    <reportFormat>junit</reportFormat>
-                    <reportFile>reports/TEST-junit-jupiter.xml</reportFile>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit-jupiter.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit-jupiter.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit-jupiter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit-jupiter.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-suite-api</artifactId>
-            <version>${junit-platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-reporting</artifactId>
-            <version>${junit-platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>${junit-platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit-platform.version}</version>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>app.getxray</groupId>
             <artifactId>xray-junit-extensions</artifactId>
-            <version>0.7.0</version>
+            <version>0.7.1</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>app.getxray</groupId>
             <artifactId>xray-maven-plugin</artifactId>
-            <version>0.7.2</version>
+            <version>0.7.3</version>
         </dependency>
 
         <dependency>
@@ -136,6 +75,48 @@
         </pluginRepository>
     </pluginRepositories>
     -->
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <debug>true</debug>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgs>
+                        <!-- this flag is required in order to obtain the name of parameters in test methods -->
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <disableXmlReport>true</disableXmlReport>
+                    <useFile>false</useFile>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>app.getxray</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>0.7.2</version>
+                <configuration>
+		    <cloud>false</cloud>
+                    <projectKey>XT</projectKey>
+                    <reportFormat>junit</reportFormat>
+                    <reportFile>reports/TEST-junit-jupiter.xml</reportFile>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
     <reporting>
         <plugins>
