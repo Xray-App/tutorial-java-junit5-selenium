@@ -23,7 +23,7 @@ import app.getxray.xray.junit.customjunitxml.annotations.Requirement;
 import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 
 @ExtendWith(XrayTestReporterParameterResolver.class)
-public class LoginTests {
+public class AnotherLoginTests {
     WebDriver driver;
     RepositoryParser repo;
 
@@ -45,8 +45,8 @@ public class LoginTests {
     }
     
     @Test
-    @XrayTest(key = "XSP20-61")
-    @Requirement("XSP20-24")
+    @XrayTest(key = "CALC-340")
+    @Requirement("CALC-152")
     public void successLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
@@ -57,7 +57,6 @@ public class LoginTests {
     }
 
     @Test
-    @Requirement("XSP20-24")
     @XrayTest(summary = "invalid login test", description = "login attempt with invalid credentials")
     public void nosuccessLogin(XrayTestReporter xrayReporter)
     {

@@ -1,4 +1,4 @@
-package com.idera.xray.tutorials;
+package xpto;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +10,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import com.idera.xray.tutorials.LoginPage;
+import com.idera.xray.tutorials.LoginResultsPage;
+import com.idera.xray.tutorials.RepositoryParser;
+
 import org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,8 +50,8 @@ public class LoginTests {
     }
     
     @Test
-    @XrayTest(key = "XSP20-61")
-    @Requirement("XSP20-24")
+    @XrayTest(key = "XT-307")
+    @Requirement("XT-10")
     public void successLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
@@ -57,7 +62,6 @@ public class LoginTests {
     }
 
     @Test
-    @Requirement("XSP20-24")
     @XrayTest(summary = "invalid login test", description = "login attempt with invalid credentials")
     public void nosuccessLogin(XrayTestReporter xrayReporter)
     {
