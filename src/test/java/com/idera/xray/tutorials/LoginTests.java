@@ -45,8 +45,8 @@ public class LoginTests {
     }
     
     @Test
-    @XrayTest(key = "XSP1-61")
-    @Requirement("XSP1-24")
+    @XrayTest(key = "XSP-59")
+    @Requirement("XSP-23")
     public void successLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
@@ -57,7 +57,7 @@ public class LoginTests {
     }
 
     @Test
-    @Requirement("XSP1-24")
+    @Requirement("XSP-23")
     @XrayTest(summary = "invalid login test", description = "login attempt with invalid credentials")
     public void nosuccessLogin(XrayTestReporter xrayReporter)
     {
