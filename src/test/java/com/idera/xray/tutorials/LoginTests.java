@@ -45,8 +45,8 @@ public class LoginTests {
     }
     
     @Test
-    @XrayTest(key = "XT-307")
-    @Requirement("XT-10")
+    @XrayTest(key = "XT-563")
+    @Requirement("XT-41")
     public void successLogin()
     {
         LoginPage loginPage = new LoginPage(driver).open();
@@ -58,6 +58,7 @@ public class LoginTests {
 
     @Test
     @XrayTest(summary = "invalid login test", description = "login attempt with invalid credentials")
+    @Requirement("XT-41")
     public void nosuccessLogin(XrayTestReporter xrayReporter)
     {
         LoginPage loginPage = new LoginPage(driver).open();
